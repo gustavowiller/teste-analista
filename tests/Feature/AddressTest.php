@@ -16,9 +16,9 @@ class AddressTest extends TestCase
      * @return void
      */
     /** @test */
-    public function a_user_can_browse_addresses()
+    public function a_user_can_browse_adresses ()
     {
-        $response = $this->get('/adresses');
+        $response = $this->get('/addresses');
 
         $response->assertStatus(200);
     }
