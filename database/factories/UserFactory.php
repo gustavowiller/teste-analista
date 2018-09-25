@@ -24,7 +24,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 $factory->define(App\Customer::class, function ($faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'title' => $faker->title,
         'cpf' => $faker->cpf,
@@ -41,8 +41,24 @@ $factory->define(App\Address::class, function ($faker){
         'complement' => $faker->secondaryAddress,
         'neighborhood' => $faker->city,
         'cep'   => $faker->postcode,
+        'city_id' => $faker->numberBetween(1,5570),
         'customer_id' => function () {
             return factory('App\Customer')->create()->id;
         }
     ];
 });
+
+$factory->define(App\Movie::class, function ($faker){
+    return [
+        'title' => $faker->words(2,true),
+        'release_year' => $faker->year,
+        'director' => $faker->name,
+        'rating' => $faker->randomFloat(1,0,10),
+        'synopsis' => $faker->sentences(3,true),
+        'customer_id' => function () {
+            return factory('App\Customer')->create()->id;
+        }
+    ];
+});
+
+
