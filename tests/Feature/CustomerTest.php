@@ -5,16 +5,20 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+class CustomerTest extends TestCase
 {
+
+    use RefreshDatabase;
+
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    /** @test */
+    public function a_user_can_browse_customers()
     {
-        $response = $this->get('/');
+        $response = $this->get('/customers');
 
         $response->assertStatus(200);
     }
