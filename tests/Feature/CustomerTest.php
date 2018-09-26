@@ -10,6 +10,12 @@ class CustomerTest extends TestCase
 
     use RefreshDatabase;
 
+
+    public function setUp(){
+        parent::setUp();
+        $this->customer = factory('App\Customer')->create();
+    }
+
     /**
      * A basic test example.
      *
@@ -18,8 +24,13 @@ class CustomerTest extends TestCase
     /** @test */
     public function a_user_can_browse_customers()
     {
-        $response = $this->get('/customers');
 
-        $response->assertStatus(200);
+        $response = $this->get('/customers')
+                        ->assertSee($this->customer->name);
+    }
+
+    public function a_user_can_visited_a_single_customer(){
+        $response = $this->get('/customers/' . $this->customer->id)
+                            ->assertSee($this->customer->name);
     }
 }
