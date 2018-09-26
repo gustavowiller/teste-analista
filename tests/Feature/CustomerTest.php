@@ -37,4 +37,13 @@ class CustomerTest extends TestCase
         $this->get('/customers/' . $this->customer->id)
             ->assertSee($address->street);
     }
+
+        /** @test */
+    public function a_user_can_read_movies_that_are_associated_with_a_customer(){
+        $movie = factory('App\Movie')
+            ->create(['customer_id' => $this->customer->id]);
+
+        $this->get('/customers/' . $this->customer->id)
+            ->assertSee($movie->title);
+    }
 }
