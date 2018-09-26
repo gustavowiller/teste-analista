@@ -9,12 +9,15 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach ($customers as $customer)
                             <tr>
-                                <td> {{ $customer->name }}</td>
+                                <td> <a href="{{$customer->path()}}">{{ $customer->name }}</a></td>
+                                <td> <a href="{{$customer->path()}}"> Detalhar </a></td>
+
                             </tr>
                         @endforeach
                         </tbody>

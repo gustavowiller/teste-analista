@@ -24,7 +24,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 $factory->define(App\Customer::class, function ($faker) {
     return [
-        'name' => $faker->firstName,
+        'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'title' => $faker->title,
         'cpf' => $faker->cpf,
