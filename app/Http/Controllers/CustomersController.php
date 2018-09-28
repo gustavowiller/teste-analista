@@ -25,7 +25,9 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
+        return view('customers.create')
+            ->nest('form','customers.form',
+                ["customer"=> new Customer]);
     }
 
     /**
