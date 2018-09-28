@@ -17,4 +17,8 @@ class Customer extends Model
     public function addresses(){
         return $this->hasMany(Address::class);
     }
+
+    public function movies(){
+        return $this->hasMany(Movie::class);
+    }
 }

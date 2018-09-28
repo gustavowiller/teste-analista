@@ -29,6 +29,17 @@
         </div>
     </div>
 
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @foreach ($customer->movies as $movie)
+            <div class="card">
+                <div class="card-body">
+                    {{$movie->title}}
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
 </div>
 
 @endsection
