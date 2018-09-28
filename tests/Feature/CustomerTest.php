@@ -39,12 +39,18 @@ class CustomerTest extends TestCase
             ->assertSee($address->street);
     }
 
-        /** @test */
+    /** @test */
     public function a_user_can_read_movies_that_are_associated_with_a_customer(){
         $movie = factory('App\Movie')
             ->create(['customer_id' => $this->customer->id]);
 
         $this->get('/customers/' . $this->customer->id)
             ->assertSee($movie->title);
+    }
+
+
+    /** @test */
+    public function a_user_can_show_create_form(){
+        $this->get('/customers/create')->assertSee('Novo Cadastro');
     }
 }
