@@ -23,6 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::resource('/customers', 'CustomersController');
-    Route::get('/addresses', 'AddressesController@index');
-    Route::get('/movies', 'MoviesController@index');
+    Route::get('/addresses', 'AddressesController@index')->name('addresses');
+    Route::get('/movies', 'MoviesController@index')->name('movies');
 });

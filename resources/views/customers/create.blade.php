@@ -7,7 +7,7 @@
     {!! $form !!}
     <div class='form-group'>
         <div class="col-md-16 control-label">
-            {!! Form::submit("Salvar",["class"=>"btn btn-default btn-primary","name"=>"btn-save"]) !!}
+            {!! Form::submit("Salvar",["class"=>"btn btn-default btn-primary","name"=>"btn-save", "disabled"=>true]) !!}
         </div>
     </div>
 {!! Form::close()!!}

@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
+use Redirect;
 
 class CustomersController extends Controller
 {
+
+    public function __construct(Customer $customer){
+        $this->customer = $customer;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +43,13 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        if(!$this->customer->fill($input)->isValid())
+            return Redirect::back()->withInput()->withErrors($this->customer->errors);
+        $this->customer->save();
+
+        return Redirect::to($url)->with("success",true)->with("message","Dados Salvos");
     }
 
     /**
