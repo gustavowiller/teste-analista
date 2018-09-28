@@ -14,6 +14,7 @@ class CustomerTest extends TestCase
     public function setUp(){
         parent::setUp();
         $this->customer = factory('App\Customer')->create();
+        $this->signIn();
     }
 
     /** @test */

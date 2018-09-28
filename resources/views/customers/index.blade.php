@@ -3,6 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="col-md-3">
+                <a class="nav-link" href="{{ route('customers.create') }}">
+                {{ __('Novo Cadastro') }}
+                </a>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-10">
             <div class="card">
                     <table class="table">

@@ -18,6 +18,8 @@ class AddressTest extends TestCase
     /** @test */
     public function a_user_can_browse_adresses ()
     {
+        $this->signIn();
+
         $response = $this->get('/addresses');
 
         $response->assertStatus(200);

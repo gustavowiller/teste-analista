@@ -18,6 +18,7 @@ class MovieTest extends TestCase
     /** @test */
     public function a_user_can_browse_movies()
     {
+        $this->signIn();
         $response = $this->get('/movies');
         $response->assertStatus(200);
     }
